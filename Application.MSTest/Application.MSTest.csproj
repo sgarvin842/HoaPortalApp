@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArchitecture.API\CleanArchitecture.Api.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Api\HoaPortalApp.Api.csproj" />
   </ItemGroup>
 
 </Project>

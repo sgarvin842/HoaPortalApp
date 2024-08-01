@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Domain", "CleanArchitecture.Domain\CleanArchitecture.Domain.csproj", "{D7B99482-633D-4086-B2F0-4C4706CF617F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoaPortalApp.Domain", "CleanArchitecture.Domain\HoaPortalApp.Domain.csproj", "{D7B99482-633D-4086-B2F0-4C4706CF617F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Infrustructure", "CleanArchitecture.Infrustructure\CleanArchitecture.Infrustructure.csproj", "{A4D258EE-CDDC-48D3-AFD5-CFF523AC7B84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoaPortalApp.Infrustructure", "CleanArchitecture.Infrustructure\HoaPortalApp.Infrustructure.csproj", "{A4D258EE-CDDC-48D3-AFD5-CFF523AC7B84}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Persistence", "CleanArchitecture.Persistence\CleanArchitecture.Persistence.csproj", "{B8BC8160-3C7B-4EFC-BF01-30E0749E20E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoaPortalApp.Persistence", "CleanArchitecture.Persistence\HoaPortalApp.Persistence.csproj", "{B8BC8160-3C7B-4EFC-BF01-30E0749E20E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Mvc", "CleanArchitecture.Mvc\CleanArchitecture.Mvc.csproj", "{26215F1D-D3CD-4D8F-A501-FD280FDC77DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoaPortalApp.Mvc", "CleanArchitecture.Mvc\HoaPortalApp.Mvc.csproj", "{26215F1D-D3CD-4D8F-A501-FD280FDC77DC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{2F02EE96-7076-486C-93FD-926685D95B3C}"
 EndProject
@@ -19,11 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{6C16C33B-2446-4479-8DA3-2160F7FF89BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Application", "CleanArchitecture.Application\CleanArchitecture.Application.csproj", "{A4C4CAE1-A530-4299-91F9-9CE4591BCAE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoaPortalApp.Application", "CleanArchitecture.Application\HoaPortalApp.Application.csproj", "{A4C4CAE1-A530-4299-91F9-9CE4591BCAE5}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C83A1BFD-1E21-490B-9EAA-831489F3AD19}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Identity", "CleanArchitecture.Identity\CleanArchitecture.Identity.csproj", "{8F559590-EA34-4E8C-ACF8-06F00441583C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoaPortalApp.Identity", "CleanArchitecture.Identity\HoaPortalApp.Identity.csproj", "{8F559590-EA34-4E8C-ACF8-06F00441583C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{226C76E5-9F79-4005-AABE-CEAADC67A5B0}"
 EndProject
@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{C1E94618-23E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.MSTest", "Application.MSTest\Application.MSTest.csproj", "{FDFC914A-AEB7-4965-9425-59BC23EEDFBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Api", "CleanArchitecture.Api\CleanArchitecture.Api.csproj", "{F0B5B6C7-2AA7-4ECE-AF51-C4B03C2D7881}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoaPortalApp.Api", "CleanArchitecture.Api\HoaPortalApp.Api.csproj", "{F0B5B6C7-2AA7-4ECE-AF51-C4B03C2D7881}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
