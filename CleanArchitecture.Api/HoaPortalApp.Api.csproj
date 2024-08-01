@@ -28,9 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanArchitecture.Identity\CleanArchitecture.Identity.csproj" />
-    <ProjectReference Include="..\CleanArchitecture.Infrustructure\CleanArchitecture.Infrustructure.csproj" />
-    <ProjectReference Include="..\CleanArchitecture.Persistence\CleanArchitecture.Persistence.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Identity\HoaPortalApp.Identity.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Infrustructure\HoaPortalApp.Infrustructure.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Persistence\HoaPortalApp.Persistence.csproj" />
   </ItemGroup>
 
  
