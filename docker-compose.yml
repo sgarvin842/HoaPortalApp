@@ -6,23 +6,23 @@ services:
     environment:
       - DOCKER_CLI_ACI=1
 
-  cleanarchitecture.api:
-    image: ${DOCKER_REGISTRY-}cleanarchitecture-api
+  HoaPortalApp.api:
+    image: ${DOCKER_REGISTRY-}HoaPortalApp-api
     build:
       context: .
-      dockerfile: CleanArchitecture.Api/Dockerfile
+      dockerfile: HoaPortalApp.Api/Dockerfile
     ports:
       - "5000:80"
     depends_on:
       - docker-login
 
-  cleanarchitecture.mvc:
-    image: ${DOCKER_REGISTRY-}cleanarchitecture-mvc
+  HoaPortalApp.mvc:
+    image: ${DOCKER_REGISTRY-}HoaPortalApp-mvc
     build:
       context: .
-      dockerfile: CleanArchitecture.Mvc/Dockerfile
+      dockerfile: HoaPortalApp.Mvc/Dockerfile
     ports:
       - "5001:80"
     depends_on:
       - docker-login
-      - cleanarchitecture.api
+      - HoaPortalApp.api

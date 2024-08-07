@@ -4,8 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "cleanarchitecture.mvc": "StartDebugging",
-        "cleanarchitecture.api": "StartDebugging"
+        "HoaPortalApp.mvc": "StartDebugging",
+        "HoaPortalApp.api": "StartDebugging"
       }
     }
   }

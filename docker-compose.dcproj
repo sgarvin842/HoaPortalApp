@@ -7,7 +7,7 @@
     <ProjectGuid>c83a1bfd-1e21-490b-9eaa-831489f3ad19</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>cleanarchitecture.mvc</DockerServiceName>
+    <DockerServiceName>HoaPortalApp.mvc</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.yml" />
