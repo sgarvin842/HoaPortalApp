@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -8,6 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace HoaPortalApp.Domain.Entities
 {
+    [Table("Residents")]
     public class Resident : User
     {
         public string Address { get; set; } = string.Empty;
