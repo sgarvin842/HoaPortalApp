@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "My Items";
+}
+
+<div class="nowrap-container flex-column">
+        <div class="card card-scheduled-payments w-100">
+            <h2>Documents</h2>
+            <div class="scheduled-details">
+            <div id="html1">
+                <ul>
+                    <li>
+                        Root node 1
+                        <ul>
+                            <li>Child node 1</li>
+                            <li><a href="#">Child node 2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+</div>
+<script>
+    $('#html1').jstree();
+</script>

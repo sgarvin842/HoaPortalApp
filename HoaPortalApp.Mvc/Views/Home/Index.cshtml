@@ -2,61 +2,71 @@
     ViewData["Title"] = "Home Page";
 }
 <div class="dashboard-content">
+    <div class="payment-left-section">
     <!-- Balance Card -->
-    <div class="card balance-card">
-        <h3>Your Current Balance</h3>
-        <div class="card-body">
-            <p>There is nothing for you to pay.</p>
-            <div class="payment-info">
-                <p><span class="status-dot green"></span> You have scheduled a payment of your full balance that will occur on 11/17/2023.</p>
-                <div class="button-group">
-                    <a href="#" class="btn-primary">Pay Now</a>
-                    <a href="#" class="btn-secondary">Set Up Autopay</a>
+        <div class="card payment-card-decorator balance-card">
+            <h3>Your Current Balance</h3>
+            <div class="card-body">
+                <p>There is nothing for you to pay.</p>
+                <div class="payment-info">
+                    <p><span class="status-dot green"></span> You have scheduled a payment of your full balance that will occur on 11/17/2023.</p>
+                    <div class="button-group">
+                        <a href="#" class="btn-primary">Pay Now</a>
+                        <a href="#" class="btn-secondary">Set Up Autopay</a>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+
+        <!-- Upcoming Events Card -->
+        <div class="card events-card-decorator events-card">
+            <h3>Upcoming Events</h3>
+            <div class="card-body">
+                <p><strong>Voting Member's Meeting</strong><br>Meeting of the Board of Managers</p>
+                <p>Sunday, November 12, 2023 | 01:00 PM - 02:00 PM</p>
+                <a href="#" class="btn-secondary float-end">View Calendar</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="payment-right-section">
+        <!-- Board Member Reports Card -->
+        <div class="card reports-card-decorator board-reports-card">
+            <h3>Board Member Reports</h3>
+            <div class="card-body">
+                <ul>
+                    <li><a href="#">Aged Receivable Detail</a></li>
+                    <li><a href="#">Association Work Order</a></li>
+                    <li><a href="#">Balance Sheet</a></li>
+                    <li><a href="#">Homeowner Directory</a></li>
+                    <li><a href="#">Homeowner Ledger</a></li>
+                </ul>
+                <p class="small-text">Showing 5 of 9 | <a href="#">See All</a></p>
+            </div>
+        </div>
+
+        <!-- Architectural Review Requests Card -->
+        <div class="card review-card-decorator review-requests-card">
+            <h3>Architectural Review Requests</h3>
+            <div class="card-body">
+                <div class="text-center">
+                    <a href="#" class="btn-primary w-100">Submit New Review</a>
+                    <p>You have not submitted any architectural reviews.</p>
+                </div>
+                <a href="#" class="small-text float-end">See All</a>
+            </div>
+        </div>
+
+        <!-- Maintenance Requests Card -->
+        <div class="card maintenance-card-decorator maintenance-requests-card">
+            <h3>Maintenance Requests</h3>
+            <div class="card-body text-center">
+                <a href="#" class="btn-primary w-100">Request Maintenance</a>
+                <p>You currently do not have any open maintenance requests.</p>
             </div>
         </div>
     </div>
 
-    <!-- Board Member Reports Card -->
-    <div class="card board-reports-card">
-        <h3>Board Member Reports</h3>
-        <div class="card-body">
-            <ul>
-                <li><a href="#">Aged Receivable Detail</a></li>
-                <li><a href="#">Association Work Order</a></li>
-                <li><a href="#">Balance Sheet</a></li>
-                <li><a href="#">Homeowner Directory</a></li>
-                <li><a href="#">Homeowner Ledger</a></li>
-            </ul>
-            <p class="small-text">Showing 5 of 9 | <a href="#">See All</a></p>
-        </div>
-    </div>
-
-    <!-- Upcoming Events Card -->
-    <div class="card events-card">
-        <h3>Upcoming Events</h3>
-        <div class="card-body">
-            <p><strong>Voting Member's Meeting</strong><br>Meeting of the Board of Managers</p>
-            <p>Sunday, November 12, 2023 | 01:00 PM - 02:00 PM</p>
-            <a href="#" class="btn-secondary">View Calendar</a>
-        </div>
-    </div>
-
-    <!-- Architectural Review Requests Card -->
-    <div class="card review-requests-card">
-        <h3>Architectural Review Requests</h3>
-        <div class="card-body">
-            <a href="#" class="btn-primary">Submit New Review</a>
-            <p>You have not submitted any architectural reviews.</p>
-            <a href="#" class="small-text">See All</a>
-        </div>
-    </div>
-
-    <!-- Maintenance Requests Card -->
-    <div class="card maintenance-requests-card">
-        <h3>Maintenance Requests</h3>
-        <div class="card-body">
-            <a href="#" class="btn-primary">Request Maintenance</a>
-            <p>You currently do not have any open maintenance requests.</p>
-        </div>
-    </div>
+</div>

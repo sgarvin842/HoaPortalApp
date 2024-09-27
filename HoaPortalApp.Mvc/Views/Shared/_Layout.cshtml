@@ -4,29 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HoaPortalApp.Mvc</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HoaPortalApp.Mvc.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/js/Calendar/calendar.js.css">
+    <link rel="stylesheet" href="~/js/jstree/themes/default/style.min.css" />
+    <script src="~/js/Calendar/calendar.js"></script>
+    <script src="~/js/jstree/jstree.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="nowrap-container">
         <!-- Sidebar -->
         <nav class="sidebar">
             <div class="sidebar-header">
                 <h2>Your Name Here</h2>
             </div>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Payments</a></li>
-                <li><a href="#">Calendar</a></li>
-                <li><a href="#">Approvals</a></li>
-                <li><a href="#">Maintenance</a></li>
-                <li><a href="#">Shared Documents</a></li>
-                <li><a href="#">Insurance</a></li>
-                <li><a href="#">Architectural Reviews</a></li>
-                <li><a href="#">Property Details</a></li>
-                <li><a href="#">Account Profile</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Dashboard</a></li>
+                <li><a href="@Url.Action("ContactInfo", "Home")">My Contact Info</a></li>
+                <li><a href="@Url.Action("Payments", "Home")">Billing</a></li>
+                <li><a href="@Url.Action("MyItems", "Home")">My Items</a></li>
+                <li><a href="@Url.Action("CalendarAndEvents", "Home")">Calendar & Events</a></li>
+                <li><a href="@Url.Action("Directory", "Home")">Directory</a></li>
+                <li><a href="@Url.Action("Documents", "Home")">Documents</a></li>
             </ul>
         </nav>
 
@@ -38,7 +39,7 @@
                         <p>Property Address: <strong>Your Property Address Here</strong></p>
                     </div>
                     <div class="logout">
-                        <a href="#">Log Out</a>
+                        <p><a href="#">Log Out</a></p>
                     </div>
                 </header>
             </div>

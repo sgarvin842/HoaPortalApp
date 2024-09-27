@@ -11,20 +11,29 @@ body {
     background-color: #f4f4f9;
 }
 
-.container {
+.nowrap-container {
     display: flex;
     max-width: 100%;
     padding: 0;
     flex-wrap: nowrap;
     flex-direction: row;
+    flex-basis: 100%;
+}
+
+.wrap-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .sidebar {
-    flex-grow: 1;
+    flex-basis: 10%;
     background-color: #2c3e50;
     padding: 20px;
     color: white;
-    height: 100vh;
+    height: 100%;
 }
 
 .sidebar-header {
@@ -43,19 +52,19 @@ body {
     padding: 0;
 }
 
-    .nav-links li {
-        margin-bottom: 20px;
-    }
+.nav-links li {
+    margin-bottom: 20px;
+}
 
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
 
-            .nav-links li a:hover {
-                text-decoration: underline;
-            }
+.nav-links li a:hover {
+    text-decoration: underline;
+}
 
 .main-content {
     flex-grow: 100;
@@ -69,13 +78,17 @@ body {
     padding-right: 5%;
     padding-top: 1%;
     padding-bottom: 1%;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     background-color: white;
 }
 
 .content-section {
     padding: 40px;
+}
+
+.property-address {
+    padding-right: 1%;
 }
 
 .property-address p {
@@ -93,11 +106,165 @@ body {
     }
 
 .dashboard-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
     gap: 20px;
 }
 
+.card-scheduled-payments {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-card-decorator {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #4caf50; /* Green border at the top */
+}
+.events-card-decorator {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #047677; /* Green border at the top */
+}
+
+.reports-card-decorator {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #745DCF; /* Green border at the top */
+}
+
+.review-card-decorator {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #55CFCA; /* Green border at the top */
+}
+
+.maintenance-card-decorator {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #F69D1F; /* Green border at the top */
+}
+    .card-scheduled-payments h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        color: #333;
+    }
+
+.scheduled-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.scheduled-details-left {
+    display: flex;
+    flex-direction: column;
+}
+
+    .scheduled-details-left p {
+        margin: 0;
+        color: #333;
+    }
+
+.scheduled-details-right {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.auto-payment-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.auto-payment-text {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.auto-payment-text p{
+    margin-bottom: 0 !important;
+}
+
+.scheduled-links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .scheduled-links a {
+        margin-left: 15px; /* Space between the links */
+        color: #007bff; /* Blue color for the links */
+        text-decoration: none;
+        padding: 0 10px; /* Space around the links */
+        position: relative;
+        font-weight: bold;
+        font-size: 0.9em;
+    }
+
+        .scheduled-links a:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #ccc; /* Separator color */
+        }
+
+        .scheduled-links a:hover {
+            text-decoration: underline;
+        }
+
+        .top-row-section{
+            display:flex;
+            flex-direction: row;
+            gap:20px;
+        }
+.bottom-row-section{
+    display:flex;
+    flex-direction:row;
+    gap:20px;
+}
+.payment-left-section {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.past-payments-list li {
+    display: flex;
+    justify-content: space-between; /* Ensures left and right alignment */
+    align-items: center; /* Vertically aligns the items */
+    margin-bottom: 10px; /* Adds some space between rows */
+    padding: 5px 0;
+    border-bottom: 1px solid #eaeaea; /* Optional: adds a subtle divider between items */
+}
+
+    .past-payments-list li span {
+        color: gray;
+        font-size: 0.9em;
+    }
+
+        .past-payments-list li span:last-child {
+            font-weight: bold; /* Makes the amount stand out */
+            color: #333;
+        }
+.payment-right-section {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.past-payments-list > li::marker{
+    color:green;
+}
 .card {
     background-color: white;
     padding: 20px;

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "My Items";
+}
+
+<div class="nowrap-container flex-column">
+    <div class="contents">
+        <div id="calendar1" style="max-width: 800px;"></div>
+        <br />
+        <br />
+
+        <h2>Main Controls:</h2>
+        <button onclick="calendarInstance1.destroy();">Destroy (1)</button>
+    </div>
+</div>
+
+ <script>
+     var calendarInstance1 = new calendarJs("calendar1", {
+         exportEventsEnabled: true,
+         useAmPmForTimeDisplays: true
+     });
+
+        document.title += " v" + calendarInstance1.getVersion();
+
+     var event1 = {
+         from: new Date(),
+         to: new Date(),
+         title: "New Event 1",
+         description: "A description of the new event"
+     };
+        
+        calendarInstance1.addEvent( event1 );
+    </script>
