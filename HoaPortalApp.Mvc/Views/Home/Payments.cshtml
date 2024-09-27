@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Payments";
+}
+
+<div class="wrap-container">
+    <div class="payment-left-section">
+        <div class="card payment-card-decorator balance-card">
+        <h3>Your Current Balance</h3>
+        <div class="card-body">
+            <p>There is nothing for you to pay.</p>
+            <div class="payment-info">
+                <p><span class="status-dot green"></span> You have scheduled a payment of your full balance that will occur on 11/17/2023.</p>
+                <p>show details</p>
+                <div class="button-group">
+                    <a href="#" class="btn-primary">Pay Now</a>
+                    <a href="#" class="btn-secondary">Set Up Autopay</a>
+                </div>
+            </div>
+        </div>
+        <p>You have no current bills.</p>
+        </div>
+    </div>
+
+    <div class="payment-right-section"
+
+        <!-- Right Column - Scheduled Payments -->
+        <div class="card payment-card-decorator card-scheduled-payments">
+            <h2>Scheduled Payments</h2>
+            <div class="scheduled-details">
+                <div class="scheduled-details-left">
+                    <p><strong>Full Balance</strong></p>
+                    <p class="small-text">MWoods HOA Fee</p>
+                </div>
+                <div class="scheduled-details-right">
+                    <p>04/13/2020</p>
+                </div>
+            </div>
+            <div class="auto-payment-row">
+                <div class="auto-payment-text">
+                    <p>Auto-Payment created by You</p>
+                </div>
+                <div class="scheduled-links">
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                    <a href="#">Skip payment</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Account Ledger -->
+        <div class="card payment-card-decorator balance-card">
+            <h3>Account Ledger</h3>
+            <p>Need more help understanding your balance?</p>
+            <a href="#" class="btn-secondary">View full account ledger</a>
+        </div>
+
+        <!-- Right Column - Past Payments -->
+        <div class="card payment-card-decorator balance-card">
+            <h3>Past Payments</h3>
+            <ul class="past-payments-list">
+                <li>
+                    <span>Paid on 03/02/2020</span>
+                    <span>$296.00</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -12,7 +12,30 @@ namespace HoaPortalApp.Mvc.Controllers
         {
             _logger = logger;
         }
-
+        public IActionResult Payments()
+        {
+            return View();
+        }
+        public IActionResult ContactInfo()
+        {
+            return View();
+        }
+        public IActionResult MyItems()
+        {
+            return View();
+        }
+        public IActionResult CalendarAndEvents()
+        {
+            return View();
+        }
+        public IActionResult Directory()
+        {
+            return View();
+        }
+        public IActionResult Documents()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
