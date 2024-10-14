@@ -12,6 +12,18 @@ namespace HoaPortalApp.Mvc.Controllers
         {
             _logger = logger;
         }
+        public IActionResult PaymentModal()
+        {
+            return View();
+        }
+        public IActionResult AutopayModal()
+        {
+            return View();
+        }
+        public IActionResult ConfirmDeleteModal()
+        {
+            return View();
+        }
         public IActionResult Payments()
         {
             return View();

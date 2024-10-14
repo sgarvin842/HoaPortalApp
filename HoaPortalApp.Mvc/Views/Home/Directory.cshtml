@@ -1,16 +1,141 @@
 ﻿@{
-    ViewData["Title"] = "My Items";
+    ViewData["Title"] = "Directory";
 }
 
-<div class="nowrap-container flex-column">
-    <div class="bottom-row-section">
-        <div class="card card-scheduled-payments  w-100">
-            <h2>Board Members, Comittee, Homeowners Directory</h2>
-            <div class="scheduled-details">
-                <ul>
-                    <li>Name, Phone, Email, Address</li>
-                </ul>
+<div class="container mt-5">
+    <h2 class="mb-4">Directory</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <!-- Tabs for Board Members, Committee, Homeowners -->
+            <ul class="nav nav-tabs" id="directoryTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="board-tab" data-bs-toggle="tab" href="#boardMembers" role="tab" aria-controls="boardMembers" aria-selected="false">Board Members</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="committee-tab" data-bs-toggle="tab" href="#committeeMembers" role="tab" aria-controls="committeeMembers" aria-selected="false">Committee</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="homeowners-tab" data-bs-toggle="tab" href="#homeowners" role="tab" aria-controls="homeowners" aria-selected="true">Homeowners</a>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content mt-4" id="directoryTabContent">
+                <!-- Board Members Tab -->
+                <div class="tab-pane fade" id="boardMembers" role="tabpanel" aria-labelledby="board-tab">
+                    <p>No board members available.</p>
+                </div>
+
+                <!-- Committee Members Tab -->
+                <div class="tab-pane fade" id="committeeMembers" role="tabpanel" aria-labelledby="committee-tab">
+                    <p>No committee members available.</p>
+                </div>
+
+                <!-- Homeowners Tab (Default Active) -->
+                <div class="tab-pane fade show active" id="homeowners" role="tabpanel" aria-labelledby="homeowners-tab">
+                    <!-- Search Bar -->
+                    <div class="d-flex justify-content-start mb-3">
+                        <input type="text" class="form-control w-25" id="searchDirectory" placeholder="Search" />
+                        <button class="btn btn-primary ms-2"><i class="bi bi-search"></i></button>
+                    </div>
+
+                    <!-- Directory Table -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="text" class="form-control" placeholder="Filter by Name">
+                                </th>
+                                <th>
+                                    <input type="text" class="form-control" placeholder="Filter by Phone">
+                                </th>
+                                <th>
+                                    <input type="text" class="form-control" placeholder="Filter by Email">
+                                </th>
+                                <th>
+                                    <input type="text" class="form-control" placeholder="Filter by Address">
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample Data -->
+                            <tr>
+                                <td>Roy Anderson</td>
+                                <td>(555) 123-4567</td>
+                                <td>roy@example.com</td>
+                                <td>1725 Slough Way Unit 301</td>
+                            </tr>
+                            <tr>
+                                <td>Atom Ant</td>
+                                <td>(555) 286-6268</td>
+                                <td>Aant@hannahb.toon</td>
+                                <td>241 Hannah Barbera Drive</td>
+                            </tr>
+                            <tr>
+                                <td>Yogi Bear</td>
+                                <td>(555) 987-6543</td>
+                                <td>yogi@jellystone.com</td>
+                                <td>240 Hannah Barbera Drive</td>
+                            </tr>
+                            <!-- Add more rows dynamically or from a database -->
+                        </tbody>
+                    </table>
+
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>Showing 1 - 10 of 70 items</span>
+                        <div>
+                            <select class="form-select form-select-sm d-inline-block w-auto">
+                                <option selected>10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                            items per page
+                        </div>
+                        <nav>
+                            <ul class="pagination pagination-sm">
+                                <li class="page-item"><a class="page-link" href="#">&#171;</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">&#187;</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Implement search and filter logic if necessary
+        const searchDirectoryInput = document.getElementById('searchDirectory');
+        const tableRows = document.querySelectorAll('tbody tr');
+
+        searchDirectoryInput.addEventListener('input', function () {
+            const searchTerm = searchDirectoryInput.value.toLowerCase();
+            tableRows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                let match = false;
+                cells.forEach(cell => {
+                    if (cell.textContent.toLowerCase().includes(searchTerm)) {
+                        match = true;
+                    }
+                });
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    });
+</script>
