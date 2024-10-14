@@ -6,12 +6,50 @@
     <title>@ViewData["Title"] - HoaPortalApp.Mvc</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HoaPortalApp.Mvc.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/js/Calendar/calendar.js.css">
     <link rel="stylesheet" href="~/js/jstree/themes/default/style.min.css" />
     <script src="~/js/Calendar/calendar.js"></script>
     <script src="~/js/jstree/jstree.min.js"></script>
+    <style>
+        /* CSS for Sidebar */
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            display: block;
+            border-left: 4px solid transparent;
+            transition: background-color 0.3s, border-left 0.3s;
+        }
+
+            .nav-links li a:hover {
+                text-decoration: underline;
+                background-color: #34495e; /* Darken background on hover */
+            }
+
+            .nav-links li a.selected {
+                background-color: #34495e; /* Darkened background for selected item */
+                border-left: 4px solid #27ae60; /* Green accent for the selected item */
+            }
+
+        /* Sidebar layout */
+        .sidebar {
+            width: 200px;
+            background-color: #2c3e50;
+            padding: 20px;
+            color: white;
+            height: 100vh;
+            position: fixed;
+        }
+
+        .main-content {
+            margin-left: 200px; /* Align content next to sidebar */
+        }
+
+    </style>
 </head>
 <body>
     <div class="nowrap-container">
@@ -21,43 +59,61 @@
                 <h2>Your Name Here</h2>
             </div>
             <ul class="nav-links">
-                <li><a href="@Url.Action("Index", "Home")">Dashboard</a></li>
-                <li><a href="@Url.Action("ContactInfo", "Home")">My Contact Info</a></li>
-                <li><a href="@Url.Action("Payments", "Home")">Billing</a></li>
-                <li><a href="@Url.Action("MyItems", "Home")">My Items</a></li>
-                <li><a href="@Url.Action("CalendarAndEvents", "Home")">Calendar & Events</a></li>
-                <li><a href="@Url.Action("Directory", "Home")">Directory</a></li>
-                <li><a href="@Url.Action("Documents", "Home")">Documents</a></li>
+                <li><a href="@Url.Action("Index", "Home")" class="nav-item">Dashboard</a></li>
+                <li><a href="@Url.Action("ContactInfo", "Home")" class="nav-item">My Contact Info</a></li>
+                <li><a href="@Url.Action("Payments", "Home")" class="nav-item">Billing</a></li>
+                <li><a href="@Url.Action("MyItems", "Home")" class="nav-item">My Items</a></li>
+                <li><a href="@Url.Action("CalendarAndEvents", "Home")" class="nav-item">Calendar & Events</a></li>
+                <li><a href="@Url.Action("Directory", "Home")" class="nav-item">Directory</a></li>
+                <li><a href="@Url.Action("Documents", "Home")" class="nav-item">Documents</a></li>
             </ul>
         </nav>
 
         <!-- Main Content -->
         <div class="main-content">
-            <div class="header"
-                <header>
-                    <div class="property-address">
-                        <p>Property Address: <strong>Your Property Address Here</strong></p>
-                    </div>
-                    <div class="logout">
-                        <p><a href="#">Log Out</a></p>
-                    </div>
-                </header>
+            <div class="header">
+                <div class="property-address">
+                    <p>Property Address: <strong>Your Property Address Here</strong></p>
+                </div>
+                <div class="logout">
+                    <p><a href="#">Log Out</a></p>
+                </div>
             </div>
-        
-        <div class="content-section">
-            <main role="main">
-                @RenderBody()
-            </main>
+
+            <div class="content-section">
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
         </div>
     </div>
 
-    <!--<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - HoaPortalApp.Mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>-->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript for Sidebar Selection Based on URL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navItems = document.querySelectorAll('.nav-links li a');
+
+            // Get the current page URL
+            const currentUrl = window.location.pathname;
+
+            // Highlight the item based on the current URL
+            navItems.forEach(item => {
+                // Check if the href of the item matches the current URL
+                if (item.getAttribute("href") === currentUrl) {
+                    item.classList.add('selected');
+                }
+
+                // Add click event listener to manage selection
+                item.addEventListener('click', function () {
+                    // Remove 'selected' class from all items
+                    navItems.forEach(i => i.classList.remove('selected'));
+                    // Add 'selected' class to clicked item
+                    this.classList.add('selected');
+                });
+            });
+        });
+    </script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

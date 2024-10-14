@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{6C16C33B-2446-4479-8DA3-2160F7FF89BC}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C83A1BFD-1E21-490B-9EAA-831489F3AD19}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{226C76E5-9F79-4005-AABE-CEAADC67A5B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{C1E94618-23E0-487E-B5CE-02BE79AB6CA1}"
@@ -39,10 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C83A1BFD-1E21-490B-9EAA-831489F3AD19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C83A1BFD-1E21-490B-9EAA-831489F3AD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C83A1BFD-1E21-490B-9EAA-831489F3AD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C83A1BFD-1E21-490B-9EAA-831489F3AD19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FDFC914A-AEB7-4965-9425-59BC23EEDFBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FDFC914A-AEB7-4965-9425-59BC23EEDFBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDFC914A-AEB7-4965-9425-59BC23EEDFBE}.Release|Any CPU.ActiveCfg = Release|Any CPU

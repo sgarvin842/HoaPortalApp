@@ -8,8 +8,6 @@ namespace HoaPortalApp.Identity
 {
     public class IdentityDbContext : IdentityDbContext<ApplicationUser>
     {
-        DbSet<User> _users { get; set; }
-        DbSet<HOAAdmin> _admins { get; set; }
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options)
             : base(options)
         {

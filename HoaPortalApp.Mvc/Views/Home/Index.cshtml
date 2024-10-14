@@ -11,8 +11,8 @@
                 <div class="payment-info">
                     <p><span class="status-dot green"></span> You have scheduled a payment of your full balance that will occur on 11/17/2023.</p>
                     <div class="button-group">
-                        <a href="#" class="btn-primary">Pay Now</a>
-                        <a href="#" class="btn-secondary">Set Up Autopay</a>
+                        <button type="button" class="btn-primary" data-bs-target="#paymentModal" data-bs-toggle="modal">Pay Now</button>
+                        <button type="button" class="btn-secondary" data-bs-target="#autopayModal" data-bs-toggle="modal">Set Up Autopay</button>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="card-body">
                 <p><strong>Voting Member's Meeting</strong><br>Meeting of the Board of Managers</p>
                 <p>Sunday, November 12, 2023 | 01:00 PM - 02:00 PM</p>
-                <a href="#" class="btn-secondary float-end">View Calendar</a>
+                <a href="@Url.Action("CalendarAndEvents", "Home")" class="btn-secondary float-end">View Calendar</a>
             </div>
         </div>
 
@@ -69,4 +69,6 @@
         </div>
     </div>
 
+    <partial name="PaymentModal" />
+    <partial name="AutopayModal" />
 </div>
