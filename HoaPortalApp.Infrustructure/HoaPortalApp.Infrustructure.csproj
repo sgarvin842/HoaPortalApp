@@ -8,10 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HoaPortalApp.Application\HoaPortalApp.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\HoaPortalApp.Identity\HoaPortalApp.Identity.csproj" />
+    <ProjectReference Include="..\HoaPortalApp.Persistence\HoaPortalApp.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

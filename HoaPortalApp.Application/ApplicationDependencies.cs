@@ -19,7 +19,7 @@ namespace HoaPortalApp.Application
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-                //cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
             });
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

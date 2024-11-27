@@ -64,9 +64,10 @@ namespace HoaPortalApp.Identity.Services
                 Id = user.Id,
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
                 Email = user.Email,
-                UserName = user.UserName
+                UserName = user.UserName,
+                FirstName = user.FirstName
             };
-
+            
             return Success(response);
         }
 
@@ -210,7 +211,7 @@ namespace HoaPortalApp.Identity.Services
                 issuer: _jwtSettings.Issuer,
                 audience: _jwtSettings.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(_jwtSettings.DurationInMinutes),
+                expires: DateTime.UtcNow.AddDays(_jwtSettings.DurationInDays),
                 signingCredentials: signingCredentials);
             return jwtSecurityToken;
         }

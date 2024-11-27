@@ -30,11 +30,11 @@ namespace HoaPortalApp.Application.Behaviors
 
                 if (authorizeAttributes.Any())
                 {
-                    //var jwtToken = _httpContextAccessor.HttpContext?.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-                    //if (string.IsNullOrEmpty(jwtToken) || !await _identityService.ValidateToken(jwtToken))
-                    //{
-                    //    throw new UnauthorizedAccessException();
-                    //}
+                    var jwtToken = _httpContextAccessor.HttpContext?.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+                    if (string.IsNullOrEmpty(jwtToken) || !await _identityService.ValidateToken(jwtToken))
+                    {
+                        throw new UnauthorizedAccessException();
+                    }
                     // Must be authenticated user
                     if (_user.Id == null)
                     {

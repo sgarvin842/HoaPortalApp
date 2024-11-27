@@ -14,14 +14,22 @@ namespace HoaPortalApp.Domain.Entities
     public class Payment
     {
         [Key]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string ResidentId { get; set; }
         public double Amount { get; set; }
         public DateTime PaymentDate { get; set; }
-        public string Status { get; set; }
-        public double LateFee { get; set; }
+        public Status Status { get; set; }
+        public double? LateFee { get; set; }
         private double CalculateLateFee(DateTime dueDate){
             throw new NotImplementedException();
         }
+    }
+
+    [Table("Status")]
+    public class Status
+    {
+        [Key]
+        public Guid Id { get; set; }
+        public string Value { get; set; }
     }
 }

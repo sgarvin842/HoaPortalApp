@@ -5,22 +5,23 @@
 <div class="container mt-5">
     <h2 class="mb-4">Calendar & Events</h2>
 
-    <!-- Tab Navigation -->
-    <ul class="nav nav-tabs" id="calendarTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="community-tab" data-bs-toggle="tab" href="#communityCalendar" role="tab" aria-controls="communityCalendar" aria-selected="true">Community Calendar</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="amenity-tab" data-bs-toggle="tab" href="#amenityCalendar" role="tab" aria-controls="amenityCalendar" aria-selected="false">Amenity Calendars</a>
-        </li>
-    </ul>
-
     <!-- Tab Content -->
-    <div class="tab-content mt-4" id="calendarTabContent">
-        <!-- Community Calendar Tab -->
-        <div class="tab-pane fade show active" id="communityCalendar" role="tabpanel" aria-labelledby="community-tab">
-            <div class="card">
-                <div class="card-body">
+    <div class="card">
+        <div class="card-body">
+            <!-- Tab Navigation -->
+            <ul class="nav nav-tabs" id="calendarTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="community-tab" data-bs-toggle="tab" href="#communityCalendar" role="tab" aria-controls="communityCalendar" aria-selected="true">Community Calendar</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="amenity-tab" data-bs-toggle="tab" href="#amenityCalendar" role="tab" aria-controls="amenityCalendar" aria-selected="false">Amenity Calendars</a>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content mt-4" id="calendarTabContent">
+                <!-- Community Calendar Tab -->
+                <div class="tab-pane fade show active" id="communityCalendar" role="tabpanel" aria-labelledby="community-tab">
                     <!-- Calendar Navigation -->
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <button class="btn btn-outline-secondary" id="prevMonth">&lt;</button>
@@ -28,158 +29,132 @@
                         <button class="btn btn-outline-secondary" id="nextMonth">&gt;</button>
                     </div>
 
-                    <!-- Calendar View Options -->
-                    <div class="d-flex justify-content-end mb-3">
-                        <button class="btn btn-sm btn-outline-primary me-2" id="viewDay">Day</button>
-                        <button class="btn btn-sm btn-outline-primary me-2" id="viewWeek">Week</button>
-                        <button class="btn btn-sm btn-outline-primary me-2" id="viewAgenda">Agenda</button>
-                        <button class="btn btn-sm btn-outline-primary" id="viewMonth">Month</button>
-                    </div>
-
-                    <!-- Calendar Table for Community Calendar -->
-                    <table class="table table-bordered" id="communityCalendarTable">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Event</th>
-                            </tr>
-                        </thead>
-                        <tbody id="communityEventTableBody">
-                            <!-- Sample Events -->
-                            <tr>
-                                <td>Sunday, August 01, 2024</td>
-                                <td>3:00 AM - 3:00 AM</td>
-                                <td><span class="badge bg-success">Classic</span></td>
-                            </tr>
-                            <tr>
-                                <td>Monday, August 02, 2024</td>
-                                <td>3:00 AM - 3:00 AM</td>
-                                <td><span class="badge bg-success">Classic</span></td>
-                            </tr>
-                            <!-- Add more rows as necessary -->
-                        </tbody>
-                    </table>
+                    <!-- FullCalendar Community Calendar -->
+                    <div id="communityCalendarContainer"></div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Amenity Calendars Tab -->
-        <div class="tab-pane fade" id="amenityCalendar" role="tabpanel" aria-labelledby="amenity-tab">
-            <div class="card">
-                <div class="card-body">
+                <!-- Amenity Calendars Tab -->
+                <div class="tab-pane fade" id="amenityCalendar" role="tabpanel" aria-labelledby="amenity-tab">
                     <h3>Amenity Calendars</h3>
                     <p>Please place your amenity reservations among the calendar below. All requests are subject to approval by Community Management.</p>
 
-                    <!-- Amenity Filters -->
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <select class="form-select" id="amenityCategory">
-                                <option selected>Choose a Category</option>
-                                <option value="Sports">Sports</option>
-                                <option value="Recreation">Recreation</option>
-                                <!-- Add more categories as needed -->
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <select class="form-select" id="amenityItem">
-                                <option selected>Choose an Amenity</option>
-                                <option value="Pool">Pool</option>
-                                <option value="Tennis Court">Tennis Court</option>
-                                <!-- Add more amenities as needed -->
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Amenity Calendar Navigation -->
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <button class="btn btn-outline-secondary" id="prevAmenityMonth">&lt;</button>
-                        <span id="amenityCurrentDateRange">August 2024</span>
-                        <button class="btn btn-outline-secondary" id="nextAmenityMonth">&gt;</button>
-                    </div>
-
-                    <!-- Amenity Calendar View Options -->
-                    <div class="d-flex justify-content-end mb-3">
-                        <button class="btn btn-sm btn-outline-primary me-2" id="viewAmenityDay">Day</button>
-                        <button class="btn btn-sm btn-outline-primary me-2" id="viewAmenityWeek">Week</button>
-                        <button class="btn btn-sm btn-outline-primary me-2" id="viewAmenityAgenda">Agenda</button>
-                        <button class="btn btn-sm btn-outline-primary" id="viewAmenityMonth">Month</button>
-                    </div>
-
-                    <!-- Amenity Calendar -->
-                    <div id="amenityCalendarContainer"></div> <!-- The calendarJs instance will render here -->
+                    <!-- FullCalendar Amenity Calendar -->
+                    <div id="amenityCalendarContainer"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Include Bootstrap JS for tab functionality -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        let amenityCalendarInstance;
-        let currentView = 'month'; // Default view
+        // Community Calendar
+        var communityCalendarEl = document.getElementById('communityCalendarContainer');
+        var communityCalendar = new FullCalendar.Calendar(communityCalendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: false,
+            events: [
+                { title: 'Classic Event', start: '2024-08-01' },
+                { title: 'Another Event', start: '2024-08-02' }
+            ]
+        });
+        communityCalendar.render();
+        updateCurrentDateRange(communityCalendar);
 
-        // Initialize the community calendar (this can also be done with a library like calendarJs if required)
-
-        // Function to switch between Day/Week/Month/Agenda for community calendar
-        function switchCommunityView(viewType) {
-            currentView = viewType;
-            console.log(`Switching Community Calendar to ${viewType} view`);
-            // Logic to update the community calendar with the correct view
+        // Function to update the current date range display
+        function updateCurrentDateRange(calendar) {
+            var currentDate = calendar.getDate();
+            var monthNames = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            document.getElementById('currentDateRange').innerText = monthNames[currentDate.getMonth()] + ' ' + currentDate.getFullYear();
         }
 
-        // Switch views for the community calendar
-        document.getElementById('viewDay').addEventListener('click', function () {
-            switchCommunityView('day');
+        // Navigation Buttons
+        document.getElementById('prevMonth').addEventListener('click', function () {
+            communityCalendar.prev(); // Go to previous month
+            updateCurrentDateRange(communityCalendar);
         });
-        document.getElementById('viewWeek').addEventListener('click', function () {
-            switchCommunityView('week');
-        });
-        document.getElementById('viewAgenda').addEventListener('click', function () {
-            switchCommunityView('agenda');
-        });
-        document.getElementById('viewMonth').addEventListener('click', function () {
-            switchCommunityView('month');
+        document.getElementById('nextMonth').addEventListener('click', function () {
+            communityCalendar.next(); // Go to next month
+            updateCurrentDateRange(communityCalendar);
         });
 
-        // Initialize Amenity Calendar
-        function initializeAmenityCalendar() {
-            if (!amenityCalendarInstance) {
-                amenityCalendarInstance = new calendarJs({
-                    container: document.getElementById('amenityCalendarContainer'),
-                    view: currentView, // Default to month view
-                    data: [] // Event data will go here
-                });
+        // Amenity Calendar
+        var amenityCalendarEl = document.getElementById('amenityCalendarContainer');
+        var amenityCalendar = new FullCalendar.Calendar(amenityCalendarEl, {
+            initialView: 'dayGridMonth',
+            editable: true,
+            events: [],
+            dateClick: function (info) {
+                var today = new Date();
+                if (info.date < today) {
+                    return; // Prevent clicking on past dates
+                }
+                // Show modal or prompt for event details
+                $('#addEventModal').modal('show');
+                document.getElementById('eventDate').value = info.dateStr; // Prefill the date input
+                document.getElementById('eventDate').min = info.dateStr; // Set minimum date to today's date
             }
-            console.log("Amenity Calendar initialized");
-        }
-
-        // Switch between views for Amenity Calendar
-        function switchAmenityView(viewType) {
-            currentView = viewType;
-            console.log(`Switching Amenity Calendar to ${viewType} view`);
-            amenityCalendarInstance.setView(viewType); // Switch the view using calendarJs method
-        }
-
-        // Initialize the amenity calendar on load
-        initializeAmenityCalendar();
-
-        // Switch views for the amenity calendar
-        document.getElementById('viewAmenityDay').addEventListener('click', function () {
-            switchAmenityView('day');
         });
-        document.getElementById('viewAmenityWeek').addEventListener('click', function () {
-            switchAmenityView('week');
+
+
+        // Fix width/height issue by resizing the calendar when the tab is made visible
+        $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+            if ($(e.target).attr('id') === 'amenity-tab') {
+                amenityCalendar.updateSize(); // Recalculate the calendar size after tab is shown
+            }
         });
-        document.getElementById('viewAmenityAgenda').addEventListener('click', function () {
-            switchAmenityView('agenda');
-        });
-        document.getElementById('viewAmenityMonth').addEventListener('click', function () {
-            switchAmenityView('month');
+        amenityCalendar.render();
+
+        // Save Event Button Click
+        document.getElementById('saveEvent').addEventListener('click', function () {
+            var title = document.getElementById('eventTitle').value;
+            var amenity = document.getElementById('eventAmenity').value;
+            var date = document.getElementById('eventDate').value;
+
+            if (title && amenity && date) {
+                amenityCalendar.addEvent({
+                    title: title + ' (' + amenity + ')',
+                    start: date,
+                    allDay: true
+                });
+                $('#addEventModal').modal('hide');
+                document.getElementById('eventForm').reset();
+            }
         });
     });
 </script>
+
+<!-- Add Event Modal -->
+<div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addEventModalLabel">Add Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="eventForm">
+                    <div class="mb-3">
+                        <label for="eventTitle" class="form-label">Event Title</label>
+                        <input type="text" class="form-control" id="eventTitle" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="eventAmenity" class="form-label">Amenity</label>
+                        <input type="text" class="form-control" id="eventAmenity" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="eventDate" class="form-label">Event Date</label>
+                        <input type="date" class="form-control" id="eventDate" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveEvent">Save Event</button>
+            </div>
+        </div>
+    </div>
+</div>

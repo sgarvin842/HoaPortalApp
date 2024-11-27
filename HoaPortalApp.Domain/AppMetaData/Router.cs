@@ -20,6 +20,16 @@
                 public const string Delete = Prefix + singleRoute;
             }
         }
+
+        public static class UserRouting
+        {
+            public const string Prefix = rule + "User";
+            public static class Actions
+            {
+                public const string GetUserSummary = Prefix + "/GetUserSummary";
+            }
+        }
+
         public static class RepositoryFolderRouting
         {
             public const string Prefix = rule + "RepositoryFolder";
