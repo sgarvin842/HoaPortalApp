@@ -1,0 +1,21 @@
+﻿@using HoaPortalApp.Application.Features.Users.Results;
+@{
+    @model UserSummaryResult;
+
+}
+
+<div class="header">
+    <div class="property-address">
+        @if (Model != null && Model.OwnerResidences != null && Model.OwnerResidences.Any())
+        {
+            <p>Property Address: <strong>@Model.OwnerResidences.First().ResidenceAddress</strong></p>
+        }
+        else
+        {
+            <p>Property Address: <strong>Address not available</strong></p>
+        }
+    </div>
+    <div class="logout">
+        <p><a href="@Url.Action("Logout", "Home")">Log Out</a></p>
+    </div>
+</div>

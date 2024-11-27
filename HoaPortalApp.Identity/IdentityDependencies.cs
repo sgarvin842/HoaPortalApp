@@ -1,4 +1,5 @@
 ﻿using HoaPortalApp.Application.Contracts.Identity;
+using HoaPortalApp.Application.Contracts.User;
 using HoaPortalApp.Application.Models;
 using HoaPortalApp.Application.Models.Identity;
 using HoaPortalApp.Identity.Helpers;
@@ -32,30 +33,11 @@ namespace HoaPortalApp.Identity
 
             services.AddScoped<IEmailsService, EmailsService>();
             services.AddScoped<IAuthService, AuthService>();
-            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<IUser, CurrentUser>();
             services.AddScoped<IRoleService, RoleService>();
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-             .AddJwtBearer(o =>
-             {
-                 o.RequireHttpsMetadata = false;
-                 o.SaveToken = true;
-                 o.TokenValidationParameters = new TokenValidationParameters
-                 {
-                     ValidateIssuerSigningKey = true,
-                     ValidateIssuer = true,
-                     ValidateAudience = true,
-                     ValidateLifetime = true,
-                     ValidIssuer = configuration["JwtSettings:Issuer"],
-                     ValidAudience = configuration["JwtSettings:Audience"],
-                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]))
-                 };
-             });
+
+
             var emailSettings = new EmailSettings();
             configuration.GetSection(nameof(emailSettings)).Bind(emailSettings);
 
@@ -74,25 +56,53 @@ namespace HoaPortalApp.Identity
             var _DefaultIdentityOptions = _IConfigurationSection.Get<DefaultIdentityOptions>();
             AddIdentityOptions.SetOptions(services, _DefaultIdentityOptions);
 
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            // .AddJwtBearer(o =>
-            // {
-            //     o.TokenValidationParameters = new TokenValidationParameters
-            //     {
-            //         ValidateIssuerSigningKey = true,
-            //         ValidateIssuer = true,
-            //         ValidateAudience = true,
-            //         ValidateLifetime = true,
-            //         ClockSkew = TimeSpan.Zero,
-            //         ValidIssuer = configuration["JwtSettings:Issuer"],
-            //         ValidAudience = configuration["JwtSettings:Audience"],
-            //         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]))
-            //     };
-            // });
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(async options =>
+            {
+                var tcs = new TaskCompletionSource<object>();
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = configuration["JwtSettings:Issuer"],
+                    ValidAudience = configuration["JwtSettings:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"])),
+                    ClockSkew = TimeSpan.Zero,
+                    RequireExpirationTime = true
+                };
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var token = context.Request.Headers["Authorization"].ToString();
+                        Console.WriteLine("Received Token: " + token);
+                        return Task.CompletedTask;
+                    },
+                    OnAuthenticationFailed = context =>
+                    {
+                        Console.WriteLine($"Authentication failed: {context.Exception.InnerException}");
+                        context.Response.Headers.Add("Token-Expired", "true");  // Optional header to detect token issues
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        Console.WriteLine("Token validated successfully. UserId: " +
+                            context.Principal?.Claims.FirstOrDefault(c => c.Type == "sub")?.Value);
+                        return Task.CompletedTask;
+                    },
+                    OnChallenge = context =>
+                    {
+                        Console.WriteLine("OnChallenge triggered. Authentication failed.");
+                        return Task.CompletedTask;
+                    }
+                };
+            });
             return services;
         }
     }

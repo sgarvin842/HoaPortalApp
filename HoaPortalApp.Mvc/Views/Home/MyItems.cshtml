@@ -71,84 +71,22 @@
 
             <!-- General Request Form -->
             <div id="generalRequestForm" class="request-form d-none">
-                <h3>General Request</h3>
-                <form>
-                    <div class="mb-3">
-                        <label for="generalProperty" class="form-label">Property</label>
-                        <select class="form-select" id="generalProperty" required>
-                            <option selected disabled>Choose a property</option>
-                            <option value="Property 1">Property 1</option>
-                            <option value="Property 2">Property 2</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="generalSubject" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="generalSubject" placeholder="Enter the subject" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="generalDescription" class="form-label">Description</label>
-                        <textarea class="form-control" id="generalDescription" rows="4" placeholder="Enter the description" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="generalAttachment" class="form-label">Attach Documents</label>
-                        <input type="file" class="form-control" id="generalAttachment">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit General Request</button>
-                </form>
+                <!-- General request fields here -->
             </div>
 
             <!-- ARC Request Form -->
             <div id="arcRequestForm" class="request-form d-none">
-                <h3>ARC Request</h3>
-                <form>
-                    <div class="mb-3">
-                        <label for="arcProperty" class="form-label">Property</label>
-                        <select class="form-select" id="arcProperty" required>
-                            <option selected disabled>Choose a property</option>
-                            <option value="Property 1">Property 1</option>
-                            <option value="Property 2">Property 2</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="arcAreaOfWork" class="form-label">Area of Work</label>
-                        <select class="form-select" id="arcAreaOfWork" required>
-                            <option selected disabled>Choose an area of work</option>
-                            <option value="Landscaping">Landscaping</option>
-                            <option value="Exterior">Exterior</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="arcSubject" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="arcSubject" placeholder="Enter the subject" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="arcWorkDescription" class="form-label">Work Description</label>
-                        <textarea class="form-control" id="arcWorkDescription" rows="4" placeholder="Enter the work description" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="arcStartDate" class="form-label">Estimated Start Date</label>
-                        <input type="date" class="form-control" id="arcStartDate" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="arcEndDate" class="form-label">Estimated End Date</label>
-                        <input type="date" class="form-control" id="arcEndDate" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="arcAttachment" class="form-label">Attach ARC Form/Other Documents</label>
-                        <input type="file" class="form-control" id="arcAttachment">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit ARC Request</button>
-                </form>
+                <!-- ARC request fields here -->
             </div>
 
             <!-- Reservation Request Form -->
             <div id="reservationRequestForm" class="request-form d-none">
                 <h3>Reservation Request</h3>
 
-                <!-- Calendar Section -->
+                <!-- Calendar Section for Reservation Requests -->
                 <div class="mb-4 card">
                     <div class="card-body" id="calendarContainer">
-                        <!-- Calendar.js will be initialized here -->
+                        <!-- FullCalendar.js will be initialized here -->
                     </div>
                 </div>
 
@@ -193,40 +131,61 @@
     </div>
 </div>
 
-<!-- Include Bootstrap JS for basic components -->
+<!-- Include FullCalendar.js and Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Include calendar.js and initialize the calendar for the reservation form -->
-<script src="path/to/calendar.js"></script>
 
 <script>
-    // Function to handle switching between forms based on request type
-    document.querySelectorAll('input[name="requestType"]').forEach((radio) => {
-        radio.addEventListener('change', function () {
-            document.querySelectorAll('.request-form').forEach(form => form.classList.add('d-none'));
-            if (this.value) {
-                switch (this.value) {
-                    case 'general':
-                        document.getElementById('generalRequestForm').classList.remove('d-none');
-                        break;
-                    case 'arc':
-                        document.getElementById('arcRequestForm').classList.remove('d-none');
-                        break;
-                    case 'reservation':
-                        document.getElementById('reservationRequestForm').classList.remove('d-none');
-                        initializeCalendar(); // Initialize the calendar when showing the reservation form
-                        break;
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to handle switching between forms based on request type
+        document.querySelectorAll('input[name="requestType"]').forEach((radio) => {
+            radio.addEventListener('change', function () {
+                document.querySelectorAll('.request-form').forEach(form => form.classList.add('d-none'));
+                if (this.value) {
+                    switch (this.value) {
+                        case 'general':
+                            document.getElementById('generalRequestForm').classList.remove('d-none');
+                            break;
+                        case 'arc':
+                            document.getElementById('arcRequestForm').classList.remove('d-none');
+                            break;
+                        case 'reservation':
+                            document.getElementById('reservationRequestForm').classList.remove('d-none');
+                            initializeCalendar(); // Initialize the calendar when showing the reservation form
+                            break;
+                    }
                 }
-            }
+            });
         });
-    });
 
-    // Hide all forms initially
-    function initializeCalendar() {
-        const calendarContainer = document.getElementById('calendarContainer');
-        if (!calendarContainer.classList.contains('initialized')) {
-            const calendar = new Calendar(calendarContainer);
-            calendar.render();
-            calendarContainer.classList.add('initialized'); // Prevent re-initialization
+        // Hide all forms initially
+        function initializeCalendar() {
+            const calendarContainer = document.getElementById('calendarContainer');
+            if (!calendarContainer.classList.contains('initialized')) {
+                const calendar = new FullCalendar.Calendar(calendarContainer, {
+                    initialView: 'dayGridMonth', // Month view by default
+                    events: [
+                        {
+                            title: 'Event 1',
+                            start: '2024-10-14',
+                            end: '2024-10-15',
+                            allDay: true
+                        },
+                        {
+                            title: 'Event 2',
+                            start: '2024-10-20T10:00:00',
+                            end: '2024-10-20T12:00:00'
+                        }
+                    ],
+                    editable: false, // Read-only mode
+                    selectable: false, // Disable selection
+                    eventClick: function (info) {
+                        info.jsEvent.preventDefault(); // Disable interaction with events
+                    }
+                });
+                calendar.render();
+                calendarContainer.classList.add('initialized'); // Prevent re-initialization
+            }
         }
-    }
+    });
 </script>

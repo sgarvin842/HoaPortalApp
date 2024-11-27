@@ -5,10 +5,12 @@ namespace HoaPortalApp.Persistence
 {
     public class ApplicationDbContext : AuditableDbContext
     {
-        DbSet<Document> _documents { get; set; }
-        DbSet<Event> _events { get; set; }
-        DbSet<Payment> _payment { get; set; }
-        DbSet<Report> reports { get; set; }
+        public DbSet<Document> Documents { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<OwnerResidence> OwnerResidences { get; set;}
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }

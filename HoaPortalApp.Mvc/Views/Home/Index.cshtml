@@ -1,5 +1,7 @@
-﻿@{
+﻿@using HoaPortalApp.Application.Features.Users.Results;
+@{
     ViewData["Title"] = "Home Page";
+    @model UserSummaryResult
 }
 <div class="dashboard-content">
     <div class="payment-left-section">
@@ -7,6 +9,10 @@
         <div class="card payment-card-decorator balance-card">
             <h3>Your Current Balance</h3>
             <div class="card-body">
+                @if (Model != null && Model.OwnerResidences != null && Model.OwnerResidences.Any())
+                {
+                    
+                }
                 <p>There is nothing for you to pay.</p>
                 <div class="payment-info">
                     <p><span class="status-dot green"></span> You have scheduled a payment of your full balance that will occur on 11/17/2023.</p>
@@ -34,40 +40,61 @@
     <div class="payment-right-section">
         <!-- Board Member Reports Card -->
         <div class="card reports-card-decorator board-reports-card">
-            <h3>Board Member Reports</h3>
+            <h3>Recent Messages</h3>
             <div class="card-body">
-                <ul>
-                    <li><a href="#">Aged Receivable Detail</a></li>
-                    <li><a href="#">Association Work Order</a></li>
-                    <li><a href="#">Balance Sheet</a></li>
-                    <li><a href="#">Homeowner Directory</a></li>
-                    <li><a href="#">Homeowner Ledger</a></li>
-                </ul>
-                <p class="small-text">Showing 5 of 9 | <a href="#">See All</a></p>
+
+                <!-- Messages Table -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messageTableBody">
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Maintenance Issue</td>
+                            <td>There's a broken pipe in my yard.</td>
+                            <td>2024-10-12</td>
+                        </tr>
+                        <!-- More rows as needed -->
+                    </tbody>
+                </table>
+                <a href="@Url.Action("MyItems", "Home")" class="btn-primary w-100">View All</a>
             </div>
         </div>
 
         <!-- Architectural Review Requests Card -->
         <div class="card review-card-decorator review-requests-card">
-            <h3>Architectural Review Requests</h3>
+            <h3>Recent Requests</h3>
             <div class="card-body">
-                <div class="text-center">
-                    <a href="#" class="btn-primary w-100">Submit New Review</a>
-                    <p>You have not submitted any architectural reviews.</p>
-                </div>
-                <a href="#" class="small-text float-end">See All</a>
-            </div>
-        </div>
 
-        <!-- Maintenance Requests Card -->
-        <div class="card maintenance-card-decorator maintenance-requests-card">
-            <h3>Maintenance Requests</h3>
-            <div class="card-body text-center">
-                <a href="#" class="btn-primary w-100">Request Maintenance</a>
-                <p>You currently do not have any open maintenance requests.</p>
+                <!-- Messages Table -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messageTableBody">
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Maintenance Issue</td>
+                            <td>There's a broken pipe in my yard.</td>
+                            <td>2024-10-12</td>
+                        </tr>
+                        <!-- More rows as needed -->
+                    </tbody>
+                </table>
+                <a href="@Url.Action("MyItems", "Home")" class="btn-primary w-100">View All</a>
             </div>
         </div>
-    </div>
 
     <partial name="PaymentModal" />
     <partial name="AutopayModal" />
